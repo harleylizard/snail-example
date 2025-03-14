@@ -2,7 +2,7 @@ import soul.software.snail.dependency.snail
 import soul.software.snail.dependency.soulSoftware
 
 plugins {
-    id("soul.software.snail") version "2.7-SNAPSHOT"
+    id("soul.software.snail") version "2.8-SNAPSHOT"
 }
 
 group = "com.harleylizard"
@@ -16,6 +16,8 @@ repositories {
 dependencies {
     snail {
         `kotlin-minecraft`.include
+
+        include("org.jetbrains.kotlin:kotlin-stdlib:2.1.10")
     }
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
