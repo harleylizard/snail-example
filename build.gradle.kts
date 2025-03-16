@@ -16,8 +16,6 @@ repositories {
 dependencies {
     snail {
         `kotlin-minecraft`.include
-
-        include("org.jetbrains.kotlin:kotlin-stdlib:2.1.10")
     }
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
