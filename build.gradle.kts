@@ -2,7 +2,7 @@ import soul.software.snail.dependency.snail
 import soul.software.snail.dependency.soulSoftware
 
 plugins {
-    id("soul.software.snail") version "2.8-SNAPSHOT"
+    id("soul.software.snail") version "3.1-SNAPSHOT"
 }
 
 group = "com.harleylizard"
@@ -29,10 +29,13 @@ tasks.test {
 }
 
 snail {
-    target = fabric("1.21.1") {
+    fabric("1.21.1") {
         name = "Example"
         id = "example"
         version = "1.0-SNAPSHOT"
         description = "Example mod"
+        entryPoints {
+            main = listOf("com.harleylizard.example.Example")
+        }
     }
 }
