@@ -11,4 +11,5 @@ pluginManagement {
 }
 
 rootProject.name = "snail-example"
-
+include("common")
+include("fabric")

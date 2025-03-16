@@ -1,8 +1,7 @@
-import soul.software.snail.dependency.snail
 import soul.software.snail.dependency.soulSoftware
 
 plugins {
-    id("soul.software.snail") version "2.8-SNAPSHOT"
+    id("soul.software.snail") version "3.1-SNAPSHOT"
 }
 
 group = "com.harleylizard"
@@ -14,12 +13,6 @@ repositories {
 }
 
 dependencies {
-    snail {
-        `kotlin-minecraft`.include
-
-        include("org.jetbrains.kotlin:kotlin-stdlib:2.1.10")
-    }
-
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
@@ -29,10 +22,22 @@ tasks.test {
 }
 
 snail {
-    target = fabric("1.21.1") {
-        name = "Example"
-        id = "example"
-        version = "1.0-SNAPSHOT"
-        description = "Example mod"
+    multiple("1.21.1") {
+        val common = project(":common") {
+            sponge()
+        }
+
+        project(":fabric") {
+            from(common)
+            fabric {
+                name = "Example"
+                id = "example"
+                version = "1.0-SNAPSHOT"
+                description = "Example mod"
+                entryPoints {
+                    main = listOf("com.harleylizard.example.Example")
+                }
+            }
+        }
     }
 }
