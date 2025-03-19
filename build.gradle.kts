@@ -1,8 +1,9 @@
-import soul.software.snail.dependency.snail
-import soul.software.snail.dependency.soulSoftware
+import com.harleylizard.snail.fabric
 
 plugins {
-    id("soul.software.snail") version "3.1-SNAPSHOT"
+    kotlin("jvm") version "2.1.0"
+    id("com.harleylizard.snail-simple") version "1.0-SNAPSHOT"
+    id("fabric-loom") version "1.10-SNAPSHOT"
 }
 
 group = "com.harleylizard"
@@ -10,12 +11,16 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    soulSoftware()
 }
 
 dependencies {
-    snail {
-        `kotlin-minecraft`.include
+    minecraft("com.mojang:minecraft:1.21.4")
+    mappings(loom.officialMojangMappings())
+
+    fabric("1.21.4") {
+        implementation("fabric-loader")
+        implementation("fabric-api")
+        implementation("fabric-language-kotlin")
     }
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
@@ -24,16 +29,4 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-}
-
-snail {
-    fabric("1.21.1") {
-        name = "Example"
-        id = "example"
-        version = "1.0-SNAPSHOT"
-        description = "Example mod"
-        entryPoints {
-            main = listOf("com.harleylizard.example.Example")
-        }
-    }
 }

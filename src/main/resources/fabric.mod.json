@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "example",
+  "version": "1.0-SNAPSHOT",
+  "name": "Example",
+  "description": "Example mod",
+  "authors": [],
+  "credits": {},
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+  "license": "MIT",
+  "icon": "",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.harleylizard.example.Example"
+    ],
+    "client": []
+  },
+  "mixins": [],
+  "depends": {
+    "minecraft": "~1.21.1",
+    "java": "\u003e\u003d21"
+  },
+  "custom": {},
+  "loom:injected_interfaces": {}
+}
