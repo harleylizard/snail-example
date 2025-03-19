@@ -17,7 +17,7 @@ dependencies {
     minecraft("com.mojang:minecraft:1.21.4")
     mappings(loom.officialMojangMappings())
 
-    fabric("1.21.4") {
+    fabric {
         implementation("fabric-loader")
         implementation("fabric-api")
         implementation("fabric-language-kotlin")
